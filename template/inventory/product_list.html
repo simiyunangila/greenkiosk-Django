@@ -1,0 +1,180 @@
+<!-- <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }    th {
+        background-color: #F2F2F2
+;
+    }    tr:hover {
+        background-color: #F5F5F5
+;
+    }    a {
+        color: #337AB7
+;
+        text-decoration: none;
+    }
+</style><table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Product Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.tittle}}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td><a href="{% url 'product_detail_view' id=product.id %}">view</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #F7F7F7
+;
+        }        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }        table {
+            border-collapse: collapse;
+            width: 100%;
+        }        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }        th {
+            background-color: #F2F2F2
+;
+            color: #333;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }        td {
+            background-color: #fff;
+        }        tr:hover {
+            background-color: #F5F5F5
+;
+        }        a {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #007BFF
+;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }        a:hover {
+            background-color: #0056B3
+;
+        } -->
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #F7F7F7;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .product-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color:green;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .edit-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .product-link:hover {
+            background-color: #0056B3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <div class="product-container">
+        {% for product in products %}
+        <div class="product-card">
+            <img class="product-image" src="{{ product.image.url }}" alt="Product Image">
+            <h2 class="product-tittle">{{ product.tittle }}</h2>
+            <!-- <p class="product-description">{{ product.description }}</p> -->
+            <span class="product-price">{{ product.price }}</span></br>
+            <a class="edit-link"  href="{% url 'product_update_view' id=product.id %}" class="edit">Edit Details</a>
+            <a class="product-link" href="{% url 'product_detail_view' id=product.id %}">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

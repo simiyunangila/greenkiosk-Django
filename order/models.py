@@ -1,4 +1,7 @@
 from django.db import models
+from cart.models import Cart
+from customer.models import Customer
+from delivery.models import Delivery
 
 # Create your models here.
 class Order(models.Model):
@@ -13,6 +16,11 @@ class Order(models.Model):
         ('Delivered', 'Delivered'),
         ('Canceled', 'Canceled'),
     ])
+
+    # cart = models.ForeignKey(Cart ,null=True, on_delete = models.CASCADE)
+    # customer = models.ForeignKey(Customer, null=True,on_delete = models.CASCADE)
+    # customer = models.CharField(max_length=100, default='default_value')
+    delivery =  models.ManyToManyField(Delivery)   
 
 
     

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the customer container */
+.customer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Apply styles to the customer image */
+.customer-image img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Apply styles to the customer details */
+.customer-details {
+    margin-left: 20px;
+}
+
+/* Apply styles to the customer name */
+.customer-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+/* Apply styles to the customer secondary name */
+.customer-details span {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Apply styles to the customer description */
+.customer-description {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+/* Apply styles to the add-to-cart button */
+.add-to-cart-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+   </head>
+<body>
+    <div class="customer-container">
+        <div class="customer-image">
+            <img src="{{ customer.image.url }}" alt="Customer Image"/>
+        </div>
+        <div class="customer-details">
+            <h2 class="customer.first_name">{{ customer.first_name}}</h2>
+            <span class="customer.second_name">{{ customer.second_name}}</span>
+            <p class="customer-description">{{ customer.phone }}</p>
+            <p class="customer-description">{{ customer.email }}</p>          
+            <a class="add-to-cart-button" href="{{ customer.url }}">Check cart</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
