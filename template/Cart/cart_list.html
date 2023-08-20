@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <style>
+        /* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the page title */
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Apply styles to the customer container */
+.customer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Apply styles to the customer card */
+.customer-card {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Apply styles to the customer image */
+.customer-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+/* Apply styles to the customer name */
+.customer-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Apply styles to the customer secondary name */
+.customer-card span {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Apply styles to the edit and view links */
+.edit-link,
+.customer-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-link:hover,
+.customer-link:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+   </head>
+<body>
+    <h1>CART ITEMS</h1>
+    <div class="customer-container">
+        {% for cart in carts %}
+        <div class="customer-details">
+            <h2 class="cart.items_name">{{cart.items_name}}</h2>
+            <span class="cart.price">{{ cart.price}}</span>
+            <p class="cart.number_of_items">{{ cart.number_of_items }}</p>
+            <p class="cart.discount">{{ cart.discount }}</p>          
+            <a class="add-to-cart-button" href="{{ product.url }}">Home</a>
+        </div>          
+        {% endfor %}
+    </div>
+</body>
+</html>
